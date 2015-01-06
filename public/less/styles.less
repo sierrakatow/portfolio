@@ -1,0 +1,211 @@
+@import "elements.less";
+@import "variables.less";
+
+html, body{
+    background-color: @brand-success;
+}
+
+@font-face {
+    font-family: 'Geometria';
+    src: url('/fonts/geometria_light-webfont.eot');
+    src: url('/fonts/geometria_light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/geometria_light-webfont.woff2') format('woff2'),
+         url('/fonts/geometria_light-webfont.woff') format('woff'),
+         url('/fonts/geometria_light-webfont.ttf') format('truetype'),
+         url('/fonts/geometria_light-webfont.svg#geometria_lightlight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.ic{
+    margin-top:30px;
+}
+
+.ic img{
+	width:130px;
+}
+
+.ic a:link, .ic a:visited{
+	cursor:pointer;
+}
+
+.ic a:hover img{
+	.opacity(0.5);
+    .rotation(5deg);
+    .transition-duration(0.3s);
+}
+
+/* Navbar ------------- */
+
+.navbar.comedy{
+	background-color:transparent;
+	a:link, a:visited{
+		color: @comedy;
+	}
+	a:link.navbar-brand{
+		color:@white;
+	}
+}
+
+.navbar.comedy .page-scroll.active a{
+	background-color: transparent !important;
+	color: lighten(@comedy, 15%) !important;
+}
+
+.navbar-shrink.comedy{
+	background-color:fadeout(@comedy,40%);
+	a:link, a:visited{
+		color: @brand-success;
+	}
+}
+
+.navbar.art{
+	background-color: @white;
+	a:link, a:visited{
+		color: @brand-success;
+	}
+	a:hover{
+		color: #808080 !important;
+	}
+	a.link.navbar-brand{
+		color: #000;
+	}
+	.page-scroll.active a{
+		border-bottom: 1px dashed #c0c0c0;
+		color: #000000;
+		background-color: #fff;
+	}
+}
+
+.navbar.code{
+	background-color: @white;
+	color: @code;
+	a:link, a:visited{
+		color: @code;
+	}
+	a:hover{
+		color:darken(@code, 15%) !important;
+	}
+	a.link.navbar-brand{
+		color: @code;
+	}
+	.page-scroll.active a{
+		background-color: @code !important;
+		.rounded(5px);
+		color: @white;
+	}
+}
+
+header.code{
+	background-color: @white;
+}
+
+h2 {
+	margin-bottom:50px !important;
+}
+
+/* Bio ---------------- */
+
+#bio{
+	background-color: @comedy;
+	color: @white;
+	font-family:"Geometria";
+}
+
+#bio h2{
+
+}
+
+/* Videos ------------- */
+
+.video-player iframe {
+	padding: 10px;
+	.rounded(5px);
+	background-color:#404040;
+	margin-bottom:30px;
+}
+
+#videos h2{
+	color: @comedy;
+}
+
+#videos .thumbnail{
+	background-color: #404040;
+	border:none !important;
+}
+
+#videos a:hover.thumbnail{
+	background-color: lighten(#404040, 10%);
+}
+
+/* Dates -------------- */
+
+.table{
+	color: darken(@comedy,20%);
+	font-family:"Geometria";
+	tr{
+		background-color: @white;
+		padding-top: 40px;
+	}
+	td{
+		text-align:center;
+		vertical-align: middle;
+		border:none;
+		padding-top: 20px !important;
+		border-top: none !important;
+	}
+	a:link, a:visited{
+		background-color: darken(@comedy,20%);
+		display: inline-block;
+		.rounded(2px);
+		color: @white;
+		padding:7px 10px;
+		position:relative;
+		bottom: 8px;
+	}
+	a:hover{
+		background-color: darken(@comedy, 25%);
+		text-decoration: none;
+	}
+	tr.spacer{
+		height: 15px;
+		background: none !important;
+	}
+}
+
+/* Contact ------------ */
+#contact {
+	background-color:@white;
+}
+
+.form-group{
+	input, label, textarea{
+		font-family: "Geometria" !important;
+	}
+}
+
+/* Artwork ------------ */
+
+.thmb {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    .rounded(5px);
+    img {
+		position: absolute;
+		top: -9999px;
+		bottom: -9999px;
+		left: -9999px;
+		right: -9999px;
+		margin: auto;
+	}
+}
+
+.thmb:hover{
+	.opacity(.7);
+	.transition-duration(0.7s);
+}
+
+
+

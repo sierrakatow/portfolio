@@ -1,0 +1,121 @@
+{% extends 'layouts/default.html' %}
+{% block title -%}Artwork{%- endblock %}
+{% block slug -%}art{% endblock %}
+
+{% block body %}
+
+<!-- Portfolio Grid Section -->
+<section id="grayscale">
+    <div class="container">
+        <div class="row">
+        	{% for x in bw %}
+            <div class="col-sm-4 portfolio-item">
+                <a href="#portfolioModal" class="portfolio-link" data-toggle="modal">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <i class="fa fa-search-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <div class="thmb">
+                    	<img src="{{ x }}" class="img-responsive" alt="">
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section id="color">
+    <div class="container">
+        <div class="row">
+        	{% for x in color %}
+            <div class="col-sm-4 portfolio-item">
+                <a href="#portfolioModal" class="portfolio-link" data-toggle="modal">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <i class="fa fa-search-plus fa-3x"></i>
+                        </div>
+                    </div>
+                	<div class="thmb">
+                		<img src="{{ x }}" class="img-responsive" alt="">
+                	</div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Portfolio Grid Section -->
+<section id="digital">
+    <div class="container">
+        <div class="row">
+        	{% for x in digital %}
+            <div class="col-sm-4 portfolio-item">
+                <a href="#portfolioModal" class="portfolio-link" data-toggle="modal">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <i class="fa fa-search-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <div class="thmb">
+                    	<img src="{{ x }}" class="img-responsive" alt="">
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+<div class="scroll-top page-scroll visible-xs visble-sm">
+    <a class="btn btn-primary" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+    </a>
+</div>
+
+<!-- Portfolio Modals -->
+<div class="portfolio-modal modal fade" id="portfolioModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <img src="" id="full" class="img-responsive img-centered" alt="">
+                        
+<!-- 						<ul class="list-inline item-details">
+						    <li>Client:
+						        <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
+						        </strong>
+						    </li>
+						    <li>Date:
+						        <strong><a href="http://startbootstrap.com">April 2014</a>
+						        </strong>
+						    </li>
+						    <li>Service:
+						        <strong><a href="http://startbootstrap.com">Web Development</a>
+						        </strong>
+						    </li>
+						</ul> -->
+                        <button type="button" class="btn btn-lg btn-default" data-dismiss="modal"><i style="color:#D9534F" class="fa fa-times"></i> Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+$('.portfolio-link').click(function(){
+	$('#full').attr('src', $(this).find('img').attr('src'));
+});
+</script>
+{% endblock %}

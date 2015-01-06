@@ -1,0 +1,116 @@
+{% extends 'layouts/default.html' %}
+{% block title -%}Standup Comedian{%- endblock %}
+{% block slug -%}comedy{% endblock %}
+
+{% block body %}
+ <!-- Header -->
+<header class="comedy">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="intro-text">
+                    <!-- <span class="name">Sierra Katow</span> -->
+                    <!-- <span class="skills">Bioshit</span> -->
+                   	<span class="skills text-left" style="display:block;margin-left:50%;">look at that photo to the left. Yep. That's definitely Sierra. good. She's a comedian, did you know? Ya. You guessed it. Right on. What do you think she's looking down at? Who knows? Think she's telling a good ole joke? Let's hope so.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Bio Section -->
+<section id="bio">
+	<div class="container">
+		<div class="row">
+	        <div class="col-lg-8 col-lg-offset-2 text-left">
+	        <h2>who does this girl think she is?</h2>
+	        <p>
+	        	Sierra Katow is a half-Chinese American, half-Japanese American comic who first began performing standup when she was 16 years old at various comedy clubs around the LA area. She is currently a junior attending Harvard College where she continues to do standup in and around Boston. On campus, she performs with the Harvard Standup Comic Society. She performs at the Comedy Studio in Cambridge, the Hollywood Comedy Store, the Pasadena Ice House, and the Flappers Comedy Club in Burbank. During the summer months when on break from college, she performs weekly at the Hollywood Laugh Factory.
+	        </p>
+	        <p>
+	        	Sierra's standup has been featured on 2 episodes of Laugh on Fox. She has also been showcased in the LA IO West Comedy Festival.
+	        </p>
+	       	</div>
+	    </div>
+	</div>
+</section>
+
+<!-- Videos Section -->
+<section id="videos">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>watch her tell some jokes. perhaps laugh.</h2>
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <div class="video-player">
+                    	<iframe width="800" height="400" src="//www.youtube.com/embed/{{ videos|first }}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                </div>
+                {% for v in videos %}
+                	{% if !loop.first %}
+                		<div class="col-lg-3">
+                			<a href="#" class="thumbnail">
+                				<img src="https://i.ytimg.com/vi/{{ v }}/mqdefault.jpg">
+                			</a>
+                		</div>
+                	{% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Upcoming Dates Section -->
+<section class="success" style="background:#303030" id="upcomingdates">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>watch her tell some jokes. in the flesh.</h2>
+            </div>
+            <div class="col-lg-10 col-lg-offset-1">
+            	<table class="table">
+					{% for d in dates %}
+					<tr>
+						<td>{{ d['date'] }}</td>
+						<td>{{ d['time'] }}</td>
+						<td>{{ d['title'] }}</td>
+						<td>{{ d['location'] }}</td>
+						<td><a href="{{ d['link'] }}">More Info <i class="fa fa-external-link-square"></i></a>
+					</tr>
+					<tr class="spacer">
+						<td></td>
+					</tr>
+					{% endfor %}
+				</table>
+            </div>
+    </div>
+</section>
+
+ <!-- Contact Section -->
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h2>questions? comments? bookings? hate mail? love mail? lukewarm mail?</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <button type="primary" class="btn btn-primary btn-lg" onclick="window.location.href='mailto:skatow@gmail.com'"><i class="fa fa-envelope"></i> skatow[at]gmail.com</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+<div class="scroll-top page-scroll visible-xs visble-sm">
+    <a class="btn btn-primary" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+    </a>
+</div>
+
+{% endblock %}
