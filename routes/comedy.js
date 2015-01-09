@@ -24,8 +24,8 @@ router.get('/', function(req, res) {
 					return {
 						title: i.summary,
 						location: i.location,
-						date: moment(i.start.dateTime, moment.ISO_8601).format("MMM DD, YYYY"),
-						time: moment(i.start.dateTime, moment.ISO_8601).format("h:mm a"),
+						date: moment(i.start.dateTime, moment.ISO_8601).tz("America/Los_Angeles").format("MMM DD, YYYY"),
+						time: moment(i.start.dateTime, moment.ISO_8601).tz("America/Los_Angeles").format("h:mm a"),
 						link: i.description
 					}
 				});
