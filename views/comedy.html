@@ -42,27 +42,26 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2>watch her tell some jokes. perhaps laugh.</h2>
-                <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <div class="video-player">
-                    	<iframe width="800" height="400" src="//www.youtube.com/embed/{{ videos|first }}" frameborder="0" allowfullscreen></iframe>
-                    </div>
+                <h2><a name="lgplayer">.</a>watch her tell some jokes. perhaps laugh.</h2>
+                <div class="col-lg-10 col-lg-offset-1 text-center">        
+                        <div class="video-player">
+                        	<iframe id="lg_player" width="800" height="400" src="//www.youtube.com/embed/{{ videos|first }}" frameborder="0" allowfullscreen></iframe>
+                        </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-2">
                 </div>
                 {% for v in videos %}
-                	{% if !loop.first %}
-                		<div class="col-lg-2">
-                			<a href="#" class="thumbnail">
-                				<img src="https://i.ytimg.com/vi/{{ v }}/mqdefault.jpg">
-                			</a>
-                		</div>
-                	{% endif %}
+            		<div class="col-lg-2">
+            			<a href="#lgplayer" id="{{ v }}" class="thumbnail{% if loop.first %} active{% endif %}">
+            				<img src="https://i.ytimg.com/vi/{{ v }}/mqdefault.jpg">
+            			</a>
+            		</div>
                 {% endfor %}
             </div>
         </div>
     </div>
 </section>
+
 
 <!-- Upcoming Dates Section -->
 <section class="success" style="background:#303030" id="upcomingdates">
@@ -114,5 +113,15 @@
         <i class="fa fa-chevron-up"></i>
     </a>
 </div>
+
+<script>
+$('.thumbnail').click(function(){
+    var code = $(this).attr('id');
+    console.log(code);
+    $('#lg_player').attr('src', '//www.youtube.com/embed/'+code);
+    $('.active').removeClass('active');
+    $(this).addClass('active');
+});
+</script>
 
 {% endblock %}
