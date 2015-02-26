@@ -110,6 +110,19 @@ html, body{
 	}
 }
 
+header.comedy{
+    background-image:url('/img/comedy-bg.png');
+    background-color: #000;
+    background-repeat: no-repeat;
+    background-position:50% 0%;
+    /* ie8- graceful degradation */
+    background-position:50% 0%9 !important;
+    .container{
+        padding-top: 250px;
+        padding-bottom: 250px;
+    }
+}
+
 header.code{
 	background-color: @white;
 }
@@ -120,6 +133,7 @@ h2 {
 
 #social a{
 	color: @white;
+	font-size: 50px;
 }
 #social a:hover{
 	color: @comedy;
@@ -141,7 +155,6 @@ h2 {
 
 .video-player iframe {
 	padding: 10px;
-	.rounded(5px);
 	background-color:#404040;
 	margin-bottom:30px;
 }
@@ -153,6 +166,7 @@ h2 {
 #videos .thumbnail{
 	background-color: #404040;
 	border:none !important;
+	.rounded(0px);
 }
 
 #videos a:hover.thumbnail{
@@ -231,6 +245,12 @@ h2 {
 .thmb:hover{
 	.opacity(.7);
 	.transition-duration(0.7s);
+}
+
+/* Footer -------------- */
+.footer {
+	padding:15px 0px;
+	color:#808080;
 }
 
 

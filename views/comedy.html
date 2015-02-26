@@ -10,20 +10,18 @@
             <div class="col-lg-12">
                 <div class="intro-text">
                     <!-- <span class="name">Sierra Katow</span> -->
-                    <!-- <span class="skills">Bioshit</span> -->
-                   	<span class="skills text-left" style="display:block;margin-left:50%;">
+                   	<span class="skills text-left" style="display:block;margin-right:50%">
                     <div class="text-center" id="social">
-                    <a href="http://www.twitter.com/sierrakatow"><i class="fa fa-twitter"></i></a>
-                    <a href="https://www.youtube.com/channel/UCJqOZFFw1gG_Wsi7c2Gcoqg"><i class="fa fa-youtube"></i></a></div>
+                    <a href="http://www.twitter.com/sierrakatow"><i class="fa fa-twitter"></i></a>&nbsp;
+                    <a href="https://www.youtube.com/channel/UCJqOZFFw1gG_Wsi7c2Gcoqg"><i class="fa fa-youtube"></i></a>&nbsp;
+                    <a href="https://instagram.com/sierrakatow/"><i class="fa fa-instagram"></i></a></div>
                     <br>
-                    look at that photo to the left. Yep. That's definitely Sierra. good. She's a comedian, did you know? Ya. You guessed it. Right on. What do you think she's looking down at? Who knows? Think she's telling a good ole joke? Let's hope so.</span>
+                    Look at that photo there. Yep. That's definitely Sierra. good. She's a comedian, did you know? Ya. You guessed it. Right on. What do you think she's looking at? Who knows? Think she's telling a good ole joke? Let's hope so.</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
-
-{{ time }}
 
 <!-- Bio Section -->
 <section id="bio">
@@ -32,10 +30,10 @@
 	        <div class="col-lg-8 col-lg-offset-2 text-left">
 	        <h2>who does this girl think she is?</h2>
 	        <p>
-	        	Sierra Katow is a half-Chinese American, half-Japanese American comic who first began performing standup when she was 16 years old at various comedy clubs around the LA area. She is currently a junior attending Harvard College where she continues to do standup in and around Boston. On campus, she performs with the Harvard Standup Comic Society. She performs at the Comedy Studio in Cambridge, the Hollywood Comedy Store, the Pasadena Ice House, and the Flappers Comedy Club in Burbank. During the summer months when on break from college, she performs weekly at the Hollywood Laugh Factory.
+	        	Sierra Katow is a half-Chinese American, half-Japanese American comic who first began performing standup when she was 16 years old at various comedy clubs around the LA area. She is currently in her third year at Harvard College, studying Computer Science, where she continues to do standup in and around Boston. On campus, she performs with the Harvard Standup Comic Society. 
 	        </p>
 	        <p>
-	        	Sierra's standup has been featured on 2 episodes of Laugh on Fox. She has also been showcased in the LA IO West Comedy Festival.
+	        	Sierra's standup has been featured as a comedy spotlight on <i><b>Last Call with Carson Daly</b></i> on NBC and on 2 episodes of <i><b>Laugh</b></i> on Fox. She has also been showcased in the LA IO West Comedy Festival.
 	        </p>
 	       	</div>
 	    </div>
@@ -48,20 +46,30 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2><a name="lgplayer">.</a>watch her tell some jokes. perhaps laugh.</h2>
-                <div class="col-lg-10 col-lg-offset-1 text-center">        
-                        <div class="video-player">
-                        	<iframe id="lg_player" width="800" height="400" src="//www.youtube.com/embed/{{ videos|first }}" frameborder="0" allowfullscreen></iframe>
-                        </div>
+                <div id="player_container">
+                	<iframe id="lg_player" width="800" height="400" src="//www.youtube.com/embed/yBWbc40JLRI" frameborder="0" allowfullscreen></iframe>
                 </div>
-                <div class="col-lg-2">
+            </div>
+        </div>
+  		<br>
+        <div class="row">
+        	<div class="col-lg-12">
+                <div class="col-sm-3">
                 </div>
-                {% for v in videos %}
-            		<div class="col-lg-2">
-            			<a href="#lgplayer" id="{{ v }}" class="thumbnail{% if loop.first %} active{% endif %}">
-            				<img src="https://i.ytimg.com/vi/{{ v }}/mqdefault.jpg">
-            			</a>
-            		</div>
-                {% endfor %}
+            {% for v in videos %}
+            	{% if loop.index == 2 %}
+            	<div class="col-sm-2">
+                    <a href="#lgplayer" id="carson" class="thumbnail">
+                        <img src="/img/carson-thumb.jpg">
+                    </a>
+                </div>
+                {% endif %}
+        		<div class="col-sm-2">
+        			<a href="#lgplayer" id="{{ v }}" class="thumbnail{% if loop.first %} active{% endif %}">
+        				<img src="https://i.ytimg.com/vi/{{ v }}/mqdefault.jpg">
+        			</a>
+        		</div>
+            {% endfor %}
             </div>
         </div>
     </div>
@@ -112,6 +120,7 @@
 
 
 
+
 <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
 <div class="scroll-top page-scroll visible-xs visble-sm">
     <a class="btn btn-primary" href="#page-top">
@@ -119,11 +128,21 @@
     </a>
 </div>
 
+
+<footer class="footer">
+	<div class="text-center">
+		&copy; 2015 Sierra Katow. Header photo &copy; 2015 Saad Amer Design.
+	</div>
+</footer>
+
 <script>
 $('.thumbnail').click(function(){
     var code = $(this).attr('id');
-    console.log(code);
-    $('#lg_player').attr('src', '//www.youtube.com/embed/'+code);
+    if(code == "carson"){
+        $("#player_container").html('<iframe width="800" height="400" src="http://www.hulu.com/embed.html?eid=x4uennfqau9vc-cbua40-w" frameborder="0" scrolling="no" webkitAllowFullScreen mozallowfullscreen allowfullscreen></iframe>');
+    }else{
+        $('#player_container').html('<iframe id="lg_player" width="800" height="400" src="//www.youtube.com/embed/'+code+'" frameborder="0" allowfullscreen></iframe>');
+    }
     $('.active').removeClass('active');
     $(this).addClass('active');
 });
